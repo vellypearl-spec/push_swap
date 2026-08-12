@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/12 13:46:54 by vkuzmina         ###   ########.fr       */
+/*   Created: 2026/08/12 11:44:53 by vkuzmina          #+#    #+#             */
+/*   Updated: 2026/08/12 13:44:29 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft/libft.h"
-
-/* Stacks */
-
-typedef struct s_node
+t_node	*create_node(int n)
 {
-	int				value;
-	int				index;
-	struct s_node	*next;
-}	t_node;
+	t_node	*node;
 
-/* List utility functions */
+	node = ft_calloc(1, sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node -> value = n;
+	node -> index = -1;
+	node -> next = NULL;
+	return (node);
+}
 
-t_node	*create_node(int n);
-void	freedom(t_node **a);
+void	freedom(t_node **a)
+{
+	t_node	*current;
 
-#endif
+	while (*a)
+	{
+		current = (*a)->next;
+		free(*a);
+		*a = current;
+	}
+}
