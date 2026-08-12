@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/12 13:46:54 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/12 16:18:04 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,9 @@ typedef struct s_node
 
 t_node	*create_node(int n);
 void	freedom(t_node **a);
+
+/* Parse */
+
+int		validation(char *str);
 
 #endif
