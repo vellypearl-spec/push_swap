@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 15:53:23 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 11:43:02 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/13 14:17:04 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,31 @@ long	conversion_range(char *str)
 	number = sign(str) * number;
 	return (number);
 }
-int	sign(char *str)
+
+void	stack_builder(t_node **a, int argc, char **argv)
 {
-	if (*str == '-')
-		return (-1);
-	else
-		return (1);
+	int		i;
+	long	number;
+	t_node	*new;
+	
+	i = 1;
+	while (i < argc)
+	{
+		if (!validation(argv[i]))
+			error();
+		else 
+		{
+			number = conversion_range(argv[i]);
+			number = (int)number;
+			new = create_node(number);
+			if (!new)
+				{
+					destroy_stack(a);
+					error();
+				}
+			add_back(a, new);
+			
+		}
+		i++;
+	}
 }

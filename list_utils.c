@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 11:44:53 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 11:52:26 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/13 12:24:59 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,20 @@ void	destroy_stack(t_node **a)
 		free(*a);
 		*a = current;
 	}
+}
+void	add_back(t_node **a, t_node *new)
+{
+	t_node	*current;
+	
+	if (!new)
+		return ;
+	current = *a;
+	if (*a)
+	{
+		while (current->next)
+			current = current->next;
+		current->next = new;
+	}
+	else
+		*a = new;
 }

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   misc.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/13 10:14:58 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 14:36:04 by vkuzmina         ###   ########.fr       */
+/*   Created: 2026/08/13 12:46:37 by vkuzmina          #+#    #+#             */
+/*   Updated: 2026/08/13 14:29:46 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void error(void)
+int	main(int argc, char **argv)
 {
-    ft_printf("Oops, seems there is an error! ( : o ‸ o : )\n");
-    exit (0);
-}
+	t_node	*a;
+	t_node	*current;
 
-int	sign(char *str)
-{
-	if (*str == '-')
-		return (-1);
-	else
-		return (1);
+	a = NULL;
+	stack_builder(&a, argc, argv);
+
+	current = a;
+	while (current)
+	{
+		ft_printf("index: %d\n",
+			current->index);
+		current = current->next;
+	}
+
+	destroy_stack(&a);
+	return (0);
 }

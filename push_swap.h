@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 11:52:11 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/13 14:19:51 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,17 @@ typedef struct s_node
 
 t_node	*create_node(int n);
 void	destroy_stack(t_node **a);
+void	add_back(t_node **a, t_node *new);
 
 /* Parse */
 
 int		validation(char *str);
 long	conversion_range(char *str);
-int		sign(char *str);
+void	stack_builder(t_node **a, int argc, char **argv);
+
 
 /* Misc */
 void 	error(void);
+int		sign(char *str);
 
 #endif

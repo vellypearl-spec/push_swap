@@ -6,46 +6,39 @@
 #    By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/11 20:45:33 by vkuzmina          #+#    #+#              #
-#    Updated: 2026/08/13 11:45:17 by vkuzmina         ###   ########.fr        #
+#    Updated: 2026/08/13 12:46:54 by vkuzmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-LIBFTNAME = libft.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+
 LIBFTDIR = ./libft
 
-#Main 
-SRC =  list_utils.c	misc.c	parse.c \
+SRC = push_swap.c \
+      list_utils.c \
+      misc.c \
+      parse.c
 
-#
-ADD = 
+OBJ = $(SRC:.c=.o)
 
-OBJ = $(SRC:.c=.o) $(ADD:.c=.o) 
-EXT =	$(IDIR)$(NAME:.a=.h)
-all: $(NAME) 
+all: $(NAME)
 
-#compile files
-COMPILE = cc $(CFLAGS) -c
-makelibft:
-	@make -C $(LIBFTDIR)
-	@cp $(LIBFTDIR)/$(LIBFTNAME) .
-	@mv $(LIBFTNAME) $(NAME)
-$(NAME): makelibft $(OBJ)
-	@ar -r $(NAME) $(OBJ)
+$(NAME): $(OBJ)
+	$(MAKE) -C $(LIBFTDIR)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFTDIR)/libft.a -o $(NAME)
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-#object files
-#.o .c:
-#	$(CC) $(CFLAGS) -c $< $^
-	
-#clean
-clean: 
-	rm -rf $(NAME) $(OBJ)
-	cd $(LIBFTDIR) && make clean
-fclean: clean 
-	rm -rf $(NAME)
-	cd $(LIBFTDIR) && make fclean
-re: clean all 
+clean:
+	rm -f $(OBJ)
+	$(MAKE) -C $(LIBFTDIR) clean
+
+fclean: clean
+	rm -f $(NAME)
+	$(MAKE) -C $(LIBFTDIR) fclean
+
+re: fclean all
