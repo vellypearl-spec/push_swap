@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   misc.c                                             :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/13 10:14:58 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 19:19:50 by vkuzmina         ###   ########.fr       */
+/*   Created: 2026/08/13 18:58:03 by vkuzmina          #+#    #+#             */
+/*   Updated: 2026/08/13 19:30:32 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void error(void)
+void	pb(t_node **a, t_node **b)
 {
-    ft_printf("Oops, seems there is an error! ( : o ‸ o : )\n");
-    exit (0);
+	t_node	*node_to_push;
+	t_node	*next_node;
+    
+	if(*a == NULL)
+		return ;
+	node_to_push = *a;
+	next_node = (*a)->next;
+	node_to_push->next = *b;
+	*b = node_to_push;
+	*a = next_node;
 }
 
-int	sign(char *str)
+void    pa(t_node   **a, t_node **b)
 {
-	if (*str == '-')
-		return (-1);
-	else
-		return (1);
-}
-void	print_stack(t_node *stack)
-{
-	while (stack)
-	{
-		ft_printf("%d ", stack->value);
-		stack = stack->next;
-	}
-	ft_printf("\n");
+	t_node	*node_to_push;
+	t_node	*next_node;
+    
+	if(*b == NULL)
+		return ;
+	node_to_push = *b;
+	next_node = (*b)->next;
+	node_to_push->next = *a;
+	*a = node_to_push;
+	*b = next_node;
 }

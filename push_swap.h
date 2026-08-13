@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 18:09:04 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/13 19:31:39 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,13 @@ long	conversion_range(char *str);
 void	stack_builder(t_node **a, int argc, char **argv);
 int		duplicate_checker(t_node *a);
 
+/* Operations */
+void    pb(t_node **a, t_node **b);
+void    pa(t_node   **a, t_node **b);
+
 /* Misc */
 void 	error(void);
 int		sign(char *str);
+void	print_stack(t_node *stack);
 
 #endif
