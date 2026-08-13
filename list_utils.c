@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 11:44:53 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 12:24:59 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/13 18:16:30 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,26 @@ void	add_back(t_node **a, t_node *new)
 	}
 	else
 		*a = new;
+}
+
+void	index_stack(t_node *a)
+{
+	t_node	*current;
+	t_node	*checker;
+	int		index;
+
+	current = a;
+	while (current)
+	{
+		checker = a;
+		index = 0;
+		while(checker)
+		{
+			if (checker->value < current->value)
+			index++;
+			checker = checker->next;
+		}
+		current->index = index;
+		current = current->next;
+	}
 }

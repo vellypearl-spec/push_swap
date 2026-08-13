@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 12:46:37 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 14:29:46 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/13 18:10:05 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(int argc, char **argv)
 	current = a;
 	while (current)
 	{
-		ft_printf("index: %d\n",
-			current->index);
+		printf("value: %d | index: %d\n",
+			current->value, current->index);
 		current = current->next;
 	}
 
