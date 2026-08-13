@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   misc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/12 11:44:53 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 11:52:26 by vkuzmina         ###   ########.fr       */
+/*   Created: 2026/08/13 10:14:58 by vkuzmina          #+#    #+#             */
+/*   Updated: 2026/08/13 10:32:05 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*create_node(int n)
+void error(void)
 {
-	t_node	*node;
-
-	node = ft_calloc(1, sizeof(t_node));
-	if (!node)
-		return (NULL);
-	node -> value = n;
-	node -> index = -1;
-	node -> next = NULL;
-	return (node);
-}
-
-void	destroy_stack(t_node **a)
-{
-	t_node	*current;
-
-	while (*a)
-	{
-		current = (*a)->next;
-		free(*a);
-		*a = current;
-	}
+    ft_printf("Oops, seems there is an error! ( : o ‸ o : )");
+    exit (0);
 }

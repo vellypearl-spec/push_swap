@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/12 18:43:56 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/13 11:52:11 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "libft/libft.h"
 
-#define INT_MAX 2147483647
-#define INT_MIN -2147483648
 
 /* Stacks */
 
@@ -30,10 +28,15 @@ typedef struct s_node
 /* List utility functions */
 
 t_node	*create_node(int n);
-void	freedom(t_node **a);
+void	destroy_stack(t_node **a);
 
 /* Parse */
 
 int		validation(char *str);
+long	conversion_range(char *str);
+int		sign(char *str);
+
+/* Misc */
+void 	error(void);
 
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+         #
+#    By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/11 20:45:33 by vkuzmina          #+#    #+#              #
-#    Updated: 2026/08/11 20:47:26 by vkuzmina         ###   ########.fr        #
+#    Updated: 2026/08/13 11:45:17 by vkuzmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFTDIR = ./libft
 
 #Main 
-SRC =  
+SRC =  list_utils.c	misc.c	parse.c \
 
 #
 ADD = 
