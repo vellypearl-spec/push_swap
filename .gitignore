@@ -1,0 +1,12 @@
+# Object files
+*.o
+
+# Executable
+push_swap
+
+# macOS
+.DS_Store
+
+# Temporary test executables
+test
+a.out

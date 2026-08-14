@@ -6,30 +6,30 @@
 #    By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/11 20:45:33 by vkuzmina          #+#    #+#              #
-#    Updated: 2026/08/14 20:20:33 by vkuzmina         ###   ########.fr        #
+#    Updated: 2026/08/14 21:40:37 by vkuzmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I./include
 
-LIBFTDIR = ./libft
+LIBFTDIR = ./include/libft
 
-SRC = push_swap.c \
-      list_utils.c \
-      misc.c \
-      parse.c \
-	  push.c \
-	  rotate.c \
-	  reverse_rotate.c \
-	  small_sort.c \
-	  helper.c \
-	  operation_cost.c \
-	  simple_strategy.c \
-	  disorder_metric.c
-
+SRC = src/main/push_swap.c \
+      src/utils/list_utils.c \
+      src/utils/misc.c \
+      src/parsing/parse.c \
+	  src/operations/push.c \
+	  src/operations/rotate.c \
+	  src/operations/reverse_rotate.c \
+	  src/sorting/small_sort.c \
+	  src/utils/helper.c \
+	  src/utils/operation_cost.c \
+	  src/sorting/simple_strategy.c \
+	  src/metric/disorder_metric.c 
+	  
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

@@ -6,11 +6,11 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 12:46:37 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 20:52:37 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/14 21:34:53 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./push_swap.h"
 
 int	main(int argc, char **argv)
 {
