@@ -6,7 +6,7 @@
 #    By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/11 20:45:33 by vkuzmina          #+#    #+#              #
-#    Updated: 2026/08/13 18:58:40 by vkuzmina         ###   ########.fr        #
+#    Updated: 2026/08/14 14:32:57 by vkuzmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRC = push_swap.c \
       list_utils.c \
       misc.c \
       parse.c \
-	  operations.c
+	  push.c \
+	  rotate.c \
+	  reverse_rotate.c
 
 OBJ = $(SRC:.c=.o)
 

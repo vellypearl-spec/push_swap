@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 19:31:39 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/14 15:12:13 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ t_node	*create_node(int n);
 void	destroy_stack(t_node **a);
 void	add_back(t_node **a, t_node *new);
 void	index_stack(t_node *a);
+t_node	*find_last(t_node *a);
+t_node	*find_before_last(t_node *a);
 
 /* Parse */
 
@@ -42,6 +44,14 @@ int		duplicate_checker(t_node *a);
 /* Operations */
 void    pb(t_node **a, t_node **b);
 void    pa(t_node   **a, t_node **b);
+void	sa(t_node **a);
+void	sb(t_node **b);
+void	ss(t_node **a, t_node **b);
+void	ra(t_node **a);
+void	rb(t_node **b);
+void	rra(t_node **a);
+void	rrb(t_node **b);
+void	rrr(t_node **a, t_node **b);
 
 /* Misc */
 void 	error(void);

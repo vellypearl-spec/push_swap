@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 11:44:53 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 18:16:30 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/14 14:46:35 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,28 @@ void	index_stack(t_node *a)
 		current->index = index;
 		current = current->next;
 	}
+}
+t_node	*find_last(t_node *a)
+{
+	t_node	*last_node;
+
+	if (!a)
+		return (NULL);
+	last_node = a;
+	while (last_node->next)
+	{
+		last_node = last_node->next;
+	}
+	return (last_node);
+}
+t_node	*find_before_last(t_node *a)
+{
+	t_node	*node_before;
+
+	if (!a || a->next == NULL)
+		return (NULL);
+	node_before = a;
+	while (node_before->next->next)
+		node_before = node_before->next;
+	return (node_before);
 }
