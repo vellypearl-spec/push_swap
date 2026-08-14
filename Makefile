@@ -6,7 +6,7 @@
 #    By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/11 20:45:33 by vkuzmina          #+#    #+#              #
-#    Updated: 2026/08/14 14:32:57 by vkuzmina         ###   ########.fr        #
+#    Updated: 2026/08/14 20:20:33 by vkuzmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,12 @@ SRC = push_swap.c \
       parse.c \
 	  push.c \
 	  rotate.c \
-	  reverse_rotate.c
+	  reverse_rotate.c \
+	  small_sort.c \
+	  helper.c \
+	  operation_cost.c \
+	  simple_strategy.c \
+	  disorder_metric.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 15:12:13 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/14 20:48:20 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void	add_back(t_node **a, t_node *new);
 void	index_stack(t_node *a);
 t_node	*find_last(t_node *a);
 t_node	*find_before_last(t_node *a);
+int		find_position(t_node *a, int target_index);
+int		stack_size(t_node *a);
+void	bring_to_top(t_node **a, int position);
 
 /* Parse */
 
@@ -52,6 +55,21 @@ void	rb(t_node **b);
 void	rra(t_node **a);
 void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
+
+/* Operation cost */
+int		rotation_cost(int size, int position);
+
+/* Disorder metric */
+int		count_inversions(t_node *a);
+double	calculate_disorder(t_node *a);
+
+/* Simple startegy */
+void	simple_sort(t_node **a, t_node **b);
+
+/* Small sorting */
+void	sort_two(t_node **a);
+void	sort_three(t_node **a);
+void	sort_five(t_node **a, t_node **b);
 
 /* Misc */
 void 	error(void);

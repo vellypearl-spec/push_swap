@@ -6,102 +6,42 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 12:46:37 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 15:11:37 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/14 20:52:37 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_node	*a;
-	t_node	*b;
+	int		size;
+	int		inversions;
+	double	disorder;
+
+	if (argc < 2)
+	{
+		ft_printf("Usage: ./test <numbers>\n");
+		return (1);
+	}
 
 	a = NULL;
-	b = NULL;
 
-	add_back(&a, create_node(1));
-	add_back(&a, create_node(2));
-	add_back(&a, create_node(3));
-	add_back(&a, create_node(4));
-	add_back(&b, create_node(5));
-	add_back(&b, create_node(6));
-	add_back(&b, create_node(7));
-	add_back(&b, create_node(8));
+	stack_builder(&a, argc, argv);
+	ft_printf("Stack built\n");
 
-	ft_printf("BEFORE:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);
-	rrr(&a, &b);
-	ft_printf("\nAFTER ra:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);
-	ft_printf("BEFORE:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);
-	rrr(&a, &b);
-	ft_printf("\nAFTER ra:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);
-	ft_printf("BEFORE:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);
-	rrr(&a, &b);
-	ft_printf("\nAFTER ra:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);
-	ft_printf("BEFORE:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);
-	rrr(&a, &b);
-	ft_printf("\nAFTER ra:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);
-	ft_printf("BEFORE:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);
-	rrr(&a, &b);
-	ft_printf("\nAFTER ra:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);
-	
-	//ft_printf("B: ");
-	//print_stack(b);
-	/* while(a)
-	{
-		ft_printf("BEFORE:\n");
-		ft_printf("A: ");
-		print_stack(a);
-		ft_printf("B: ");
-		print_stack(b);
-		pb(&a, &b);
-		ft_printf("\nAFTER pb:\n");
-		ft_printf("A: ");
-		print_stack(a);
-		ft_printf("B: ");
-		print_stack(b);
-	} */
+	index_stack(a);
+	ft_printf("Stack indexed\n");
+
+	size = stack_size(a);
+	ft_printf("Size: %d\n", size);
+
+	inversions = count_inversions(a);
+	ft_printf("Inversions: %d\n", inversions);
+
+	disorder = calculate_disorder(a);
+	printf("Disorder: %f\n", disorder);
+
 	destroy_stack(&a);
-	//destroy_stack(&b);
 	return (0);
 }
