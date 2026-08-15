@@ -8,5 +8,4 @@ push_swap
 .DS_Store
 
 # Temporary test executables
-test
 a.out

@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 14:33:04 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 15:13:26 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/15 11:43:59 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	rra(t_node **a)
 	last_node->next = *a;
 	node_before->next = NULL;
 	*a = last_node;
+	g_operations++;
 }
 void	rrb(t_node **b)
 {

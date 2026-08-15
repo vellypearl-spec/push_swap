@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 18:58:03 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 12:49:18 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/15 11:43:37 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	pb(t_node **a, t_node **b)
 	node_to_push->next = *b;
 	*b = node_to_push;
 	*a = next_node;
+	g_operations++;
 }
 
 void    pa(t_node   **a, t_node **b)
@@ -38,6 +39,7 @@ void    pa(t_node   **a, t_node **b)
 	node_to_push->next = *a;
 	*a = node_to_push;
 	*b = next_node;
+	g_operations++;
 }
 void	sa(t_node **a)
 {

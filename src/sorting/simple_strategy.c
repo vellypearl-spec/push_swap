@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 18:47:31 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 19:53:16 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/15 12:20:44 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ void	simple_sort(t_node **a, t_node **b)
 	int	position;
 	int	smallest;
 
+	if (!*a)
+		return ;
+	if (count_inversions(*a) == 0)
+		return ;
 	size = stack_size(*a);
 	smallest = 0;
 	while (size)

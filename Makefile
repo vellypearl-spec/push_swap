@@ -6,7 +6,7 @@
 #    By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/11 20:45:33 by vkuzmina          #+#    #+#              #
-#    Updated: 2026/08/14 21:40:37 by vkuzmina         ###   ########.fr        #
+#    Updated: 2026/08/15 12:11:48 by vkuzmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,25 @@ SRC = src/main/push_swap.c \
 	  
 OBJ = $(SRC:.c=.o)
 
+BENCH_SRC =	src/parsing/parse.c \
+			src/operations/push.c \
+			src/operations/rotate.c \
+			src/operations/reverse_rotate.c \
+			src/sorting/small_sort.c \
+			src/sorting/simple_strategy.c \
+			src/metric/disorder_metric.c \
+			src/utils/list_utils.c \
+			src/utils/misc.c \
+			src/utils/helper.c \
+			src/utils/operation_cost.c
+
+BENCH_OBJ = $(BENCH_SRC:.c=.o)
+
+BENCH_MAIN = tests/simple_benchmark.o
+
+benchmark: $(BENCH_OBJ) $(BENCH_MAIN)
+	$(MAKE) -C $(LIBFTDIR)
+	$(CC) $(CFLAGS) $(BENCH_OBJ) $(BENCH_MAIN) $(LIBFTDIR)/libft.a -o benchmark
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -42,11 +61,11 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ) $(BENCH_OBJ) $(BENCH_MAIN)
 	$(MAKE) -C $(LIBFTDIR) clean
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME) benchmark
 	$(MAKE) -C $(LIBFTDIR) fclean
 
 re: fclean all

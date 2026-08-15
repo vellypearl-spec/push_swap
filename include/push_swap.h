@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 20:48:20 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/15 11:43:24 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 
+int	g_operations;
 
 /* Stacks */
 
