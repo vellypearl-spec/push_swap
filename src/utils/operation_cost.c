@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation_cost.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 18:19:19 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 18:27:28 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 15:13:06 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	rotation_cost(int size, int position)
 {
 	int	cost;
-	
+
 	if (position < size - position)
 		cost = position;
 	else
 		cost = size - position;
-	return(cost);
+	return (cost);
 }

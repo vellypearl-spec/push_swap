@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 14:02:19 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/15 11:44:04 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 15:08:46 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ra(t_node **a)
 {
-	t_node 	*first_node;
-	t_node 	*last_node;
+	t_node	*first_node;
+	t_node	*last_node;
 
 	if (*a == NULL || (*a)->next == NULL)
 		return ;
@@ -26,10 +26,11 @@ void	ra(t_node **a)
 	first_node->next = NULL;
 	g_operations++;
 }
+
 void	rb(t_node **b)
 {
-	t_node 	*first_node;
-	t_node 	*last_node;
+	t_node	*first_node;
+	t_node	*last_node;
 
 	if (*b == NULL || (*b)->next == NULL)
 		return ;
@@ -39,6 +40,7 @@ void	rb(t_node **b)
 	*b = first_node->next;
 	first_node->next = NULL;
 }
+
 void	rr(t_node **a, t_node **b)
 {
 	ra(a);

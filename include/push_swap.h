@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/15 11:43:24 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 15:05:58 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	stack_builder(t_node **a, int argc, char **argv);
 int		duplicate_checker(t_node *a);
 
 /* Operations */
-void    pb(t_node **a, t_node **b);
-void    pa(t_node   **a, t_node **b);
+void	pb(t_node **a, t_node **b);
+void	pa(t_node **a, t_node **b);
 void	sa(t_node **a);
 void	sb(t_node **b);
 void	ss(t_node **a, t_node **b);
@@ -73,7 +73,8 @@ void	sort_three(t_node **a);
 void	sort_five(t_node **a, t_node **b);
 
 /* Misc */
-void 	error(void);
+
+void	error(void);
 int		sign(char *str);
 void	print_stack(t_node *stack);
 

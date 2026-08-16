@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   misc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 10:14:58 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 17:19:00 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 15:12:53 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void error(void)
+void	error(void)
 {
-    ft_printf("Oops, seems there is an error! ( : o ‸ o : )\n");
-    exit (0);
+	ft_printf("Oops, seems there is an error! ( : o ‸ o : )\n");
+	exit (0);
 }
 
 int	sign(char *str)
@@ -25,6 +25,7 @@ int	sign(char *str)
 	else
 		return (1);
 }
+
 void	print_stack(t_node *stack)
 {
 	while (stack)
@@ -34,6 +35,7 @@ void	print_stack(t_node *stack)
 	}
 	ft_printf("\n");
 }
+
 int	stack_size(t_node *a)
 {
 	int	size;

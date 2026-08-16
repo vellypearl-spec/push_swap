@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder_metric.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 20:22:08 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 20:47:00 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 15:06:44 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ int	count_inversions(t_node *a)
 		}
 		current = current->next;
 	}
-	return(inversion);
+	return (inversion);
 }
+
 double	calculate_disorder(t_node *a)
 {
 	int		size;

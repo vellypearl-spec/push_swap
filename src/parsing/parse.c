@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 15:53:23 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/13 18:09:35 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 15:10:12 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ long	conversion_range(char *str)
 		i++;
 	if (str[0] == '-')
 		limit = 2147483648;
-	else 
+	else
 		limit = 2147483647;
 	while (str[i])
 	{
-		if (number > ((limit - (str[i]-'0'))/10))
+		if (number > ((limit - (str[i] - '0')) / 10))
 			error();
 		else
 		{
-			number = number*10 + (str[i] - '0');
+			number = number * 10 + (str[i] - '0');
 			i++;
 		}
 	}
@@ -64,7 +64,7 @@ void	stack_builder(t_node **a, int argc, char **argv)
 	int		i;
 	long	number;
 	t_node	*new;
-	
+
 	i = 1;
 	while (i < argc)
 	{
@@ -95,13 +95,13 @@ int	duplicate_checker(t_node *a)
 	while (current)
 	{
 		checker = current->next;
-		while(checker)
+		while (checker)
 		{
 			if (checker->value == current->value)
-				return(1);
+				return (1);
 			checker = checker->next;
 		}
 		current = current->next;
 	}
-	return(0);
+	return (0);
 }

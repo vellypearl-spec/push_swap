@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 15:27:32 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 16:31:55 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 15:11:23 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ void	sort_two(t_node **a)
 		sa(a);
 	return ;
 }
+
 void	sort_three(t_node **a)
 {
 	t_node	*first;
 	t_node	*second;
 	t_node	*third;
-	
+
 	if (!*a || !(*a)->next)
 		return ;
 	if (!(*a)->next->next)
@@ -39,7 +40,7 @@ void	sort_three(t_node **a)
 		return ;
 	}
 	first = *a;
-	second= (*a)->next;
+	second = (*a)->next;
 	third = (*a)->next->next;
 	if (first->index > second->index && first->index > third->index)
 	{
@@ -54,11 +55,12 @@ void	sort_three(t_node **a)
 	else
 		sort_two(a);
 }
+
 void	sort_five(t_node **a, t_node **b)
 {
 	int		index;
 	int		position;
-	
+
 	if (!*a || !(*a)->next)
 		return ;
 	if (!(*a)->next->next)
@@ -67,14 +69,14 @@ void	sort_five(t_node **a, t_node **b)
 		return ;
 	}
 	index = 0;
-	position = find_position(*a,index);
+	position = find_position(*a, index);
 	bring_to_top(a, position);
 	pb(a, b);
 	index = 1;
-	position = find_position(*a,index);
+	position = find_position(*a, index);
 	bring_to_top(a, position);
 	pb(a, b);
 	sort_three(a);
 	pa(a, b);
-	pa(a,b);
+	pa(a, b);
 }

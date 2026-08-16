@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 17:24:22 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 18:39:56 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 15:11:49 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_node	*find_before_last(t_node *a)
 		node_before = node_before->next;
 	return (node_before);
 }
+
 int	find_position(t_node *a, int target_index)
 {
 	t_node	*current;
@@ -55,6 +56,7 @@ int	find_position(t_node *a, int target_index)
 	}
 	return (-1);
 }
+
 void	bring_to_top(t_node **a, int position)
 {
 	int		size;
@@ -70,7 +72,7 @@ void	bring_to_top(t_node **a, int position)
 			--position;
 		}
 	}
-	else 
+	else
 	{
 		while (rotation)
 		{

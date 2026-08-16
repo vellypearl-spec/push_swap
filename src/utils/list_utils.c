@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 11:44:53 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/14 17:24:15 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 15:12:23 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,11 @@ void	destroy_stack(t_node **a)
 		*a = current;
 	}
 }
+
 void	add_back(t_node **a, t_node *new)
 {
 	t_node	*current;
-	
+
 	if (!new)
 		return ;
 	current = *a;
@@ -64,10 +65,10 @@ void	index_stack(t_node *a)
 	{
 		checker = a;
 		index = 0;
-		while(checker)
+		while (checker)
 		{
 			if (checker->value < current->value)
-			index++;
+				index++;
 			checker = checker->next;
 		}
 		current->index = index;
