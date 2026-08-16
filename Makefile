@@ -6,7 +6,7 @@
 #    By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/11 20:45:33 by vkuzmina          #+#    #+#              #
-#    Updated: 2026/08/15 12:11:48 by vkuzmina         ###   ########.fr        #
+#    Updated: 2026/08/16 18:30:06 by vkuzmina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC = src/main/push_swap.c \
 	  src/utils/helper.c \
 	  src/utils/operation_cost.c \
 	  src/sorting/simple_strategy.c \
-	  src/metric/disorder_metric.c 
+	  src/metric/disorder_metric.c \
+	  src/sorting/medium_strategy.c
 	  
 OBJ = $(SRC:.c=.o)
 
@@ -42,7 +43,8 @@ BENCH_SRC =	src/parsing/parse.c \
 			src/utils/list_utils.c \
 			src/utils/misc.c \
 			src/utils/helper.c \
-			src/utils/operation_cost.c
+			src/utils/operation_cost.c \
+			src/sorting/medium_strategy.c
 
 BENCH_OBJ = $(BENCH_SRC:.c=.o)
 

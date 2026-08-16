@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 15:05:58 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 18:53:36 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,16 @@ int		count_inversions(t_node *a);
 double	calculate_disorder(t_node *a);
 
 /* Simple startegy */
-void	simple_sort(t_node **a, t_node **b);
+void	simple_strategy(t_node **a, t_node **b);
+
+/* Medium strategy */
+int		chunk_size(int size);
+int		in_chunk(int start, int end, int index);
+void	push_rotate(t_node **a, t_node **b, int start, int end);
+void	first_phase(t_node **a, t_node **b, int start, int end);
+int		find_largest_index(t_node *b);
+void	second_phase(t_node **a, t_node **b);
+void	medium_strategy(t_node **a, t_node **b);
 
 /* Small sorting */
 void	sort_two(t_node **a);
