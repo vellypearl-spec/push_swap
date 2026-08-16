@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_strategy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 14:28:29 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 20:07:19 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 20:33:55 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	chunk_size(int size)
 {
 	int	chunk;
-	
+
 	chunk = 1;
 	while (chunk * chunk < size)
 		++chunk;
@@ -28,50 +28,24 @@ int	in_chunk(int start, int end, int index)
 		return (1);
 	return (0);
 }
-void	push_rotate(t_node **a, t_node **b, int start, int end)
-{
-	int	middle;
-	int	index;
 
-	middle = (start + end) / 2;
-	index = (*a)->index;
-	pb(a, b);
-	if (index <= middle)
-		rb(b);
-}
 void	first_phase(t_node **a, t_node **b, int start, int end)
 {
 	int	to_push;
-	int index;
-	
+	int	index;
+
 	to_push = end - start +1;
 	while (to_push && *a)
 	{
 		index = (*a)->index;
 		if (in_chunk(start, end, index))
-			{
-				push_rotate(a, b, start, end);
-				--to_push;
-			}
-		else 
+		{
+			push_rotate(a, b, start, end);
+			--to_push;
+		}
+		else
 			ra(a);
 	}
-}
-
-int	find_largest_index(t_node *b)
-{
-	int		largest;
-	t_node	*current;
-
-	largest = b->index;
-	current = b->next;
-	while (current)
-	{
-		if (current->index > largest)
-			largest = current->index;
-		current = current->next;
-	}
-	return (largest);
 }
 
 void	second_phase(t_node **a, t_node **b)
@@ -95,7 +69,7 @@ void	medium_strategy(t_node **a, t_node **b)
 	int	start;
 	int	end;
 
-	if (!*a || count_inversions(*a) == 0 )
+	if (!*a || count_inversions(*a) == 0)
 		return ;
 	size = stack_size(*a);
 	chunk = chunk_size(size);

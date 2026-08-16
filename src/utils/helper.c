@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 17:24:22 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 15:11:49 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 20:33:39 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,20 @@ void	bring_to_top(t_node **a, int position)
 			--rotation;
 		}
 	}
+}
+
+int	find_largest_index(t_node *b)
+{
+	int		largest;
+	t_node	*current;
+
+	largest = b->index;
+	current = b->next;
+	while (current)
+	{
+		if (current->index > largest)
+			largest = current->index;
+		current = current->next;
+	}
+	return (largest);
 }
