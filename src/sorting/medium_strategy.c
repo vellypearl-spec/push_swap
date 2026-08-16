@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 14:28:29 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 18:23:42 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 20:07:19 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int	in_chunk(int start, int end, int index)
 void	push_rotate(t_node **a, t_node **b, int start, int end)
 {
 	int	middle;
-	t_node	*pushed;
+	int	index;
 
 	middle = (start + end) / 2;
-	pushed = *a;
+	index = (*a)->index;
 	pb(a, b);
-	if (pushed->index <= middle)
-		rb (b);
+	if (index <= middle)
+		rb(b);
 }
 void	first_phase(t_node **a, t_node **b, int start, int end)
 {
@@ -48,7 +48,7 @@ void	first_phase(t_node **a, t_node **b, int start, int end)
 	while (to_push && *a)
 	{
 		index = (*a)->index;
-		if (in_chunk(start, end, index) == 1)
+		if (in_chunk(start, end, index))
 			{
 				push_rotate(a, b, start, end);
 				--to_push;
@@ -95,9 +95,7 @@ void	medium_strategy(t_node **a, t_node **b)
 	int	start;
 	int	end;
 
-	if (!*a)
-		return ;
-	if (count_inversions(*a) == 0)
+	if (!*a || count_inversions(*a) == 0 )
 		return ;
 	size = stack_size(*a);
 	chunk = chunk_size(size);
@@ -110,5 +108,4 @@ void	medium_strategy(t_node **a, t_node **b)
 		end += chunk;
 	}
 	second_phase(a, b);
-	
 }
