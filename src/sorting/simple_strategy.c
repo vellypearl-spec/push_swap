@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 18:47:31 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/15 12:20:44 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/16 18:53:45 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 		--size;
 	}
 }*/
-void	simple_sort(t_node **a, t_node **b)
+void	simple_strategy(t_node **a, t_node **b)
 {
 	int	size;
 	int	position;
