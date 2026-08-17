@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/17 16:29:59 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/17 19:04:49 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,13 @@ void	simple_strategy(t_node **a, t_node **b);
 /* Medium sort */
 void	medium_sort(t_node **a, t_node **b);
 void	bring_to_top_b(t_node **b, int position);
+int	find_largest_index(t_node *b);
+
+/* Custom strategy */
+double	rank_distance(t_node *a);
+int	direct_distance(int position_current, int position_next);
+int	circular_distance(int d_distance, int size);
+int	rank_pair_distance(t_node *a, int index, int size);
 
 /* Small sorting */
 void	sort_two(t_node **a);

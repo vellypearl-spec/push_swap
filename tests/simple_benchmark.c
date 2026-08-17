@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 11:31:55 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/17 16:33:44 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/17 19:06:36 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,38 +50,40 @@
 }*/
 int	main(int argc, char **argv)
 {
-	t_node	*a_medium_new;
-	t_node	*b_medium_new;
+	t_node	*a_simple;
+	t_node	*b_simple;
 	t_node	*a_medium;
 	t_node	*b_medium;
 	double	disorder;
+	double	rank;
 
-	a_medium_new = NULL;
-	b_medium_new = NULL;
+	a_simple = NULL;
+	b_simple = NULL;
 	a_medium = NULL;
 	b_medium = NULL;
 
-	stack_builder(&a_medium_new, argc, argv);
+	stack_builder(&a_simple, argc, argv);
 	stack_builder(&a_medium, argc, argv);
 
-	index_stack(a_medium_new);
+	index_stack(a_simple);
 	index_stack(a_medium);
 
-	disorder = calculate_disorder(a_medium_new);
+	disorder = calculate_disorder(a_simple);
+	rank = rank_distance(a_simple);
 
 	g_operations = 0;
-	medium_sort(&a_medium_new, &b_medium_new);
-	printf("Optimized medium sort: %d operations\n", g_operations);
+	simple_strategy(&a_simple, &b_simple);
+	printf("Simple strategy: %d operations\n", g_operations);
 
 	g_operations = 0;
-	medium_sort_old(&a_medium, &b_medium);
-	printf("Old medium sort: %d operations\n", g_operations);
+	medium_sort(&a_medium, &b_medium);
+	printf("Medium sort: %d operations\n", g_operations);
 
-	printf("Size: %d | Disorder: %.6f\n",
-		argc - 1, disorder);
+	printf("Size: %d | Disorder: %.6f | Rank distance:%.6f\n", 
+		argc - 1, disorder, rank);
 
-	destroy_stack(&a_medium_new);
-	destroy_stack(&b_medium_new);
+	destroy_stack(&a_simple);
+	destroy_stack(&b_simple);
 	destroy_stack(&a_medium);
 	destroy_stack(&b_medium);
 	return (0);

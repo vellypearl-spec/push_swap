@@ -174,3 +174,38 @@ Repeat
 The optimization preserves the original chunk-based strategy while reducing unnecessary stack operations during reconstruction.
 
 For the tested random inputs, the optimized implementation reduced the generated operation count by approximately 36%.
+
+## 「 ✦  Custom design architecture ✦ 」
+```c
+┌─────────────────────────────────────────┐
+│ PHASE 1 — ANALYSIS                      │
+│                                         │
+│ size                                    │
+│ disorder                                │
+│ sequential rank distance                │
+│           ↓                             │
+│ classify / determine sorting behavior   │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────┐
+│ PHASE 2 — COST-AWARE MOVEMENT           │
+│                                         │
+│ choose target/candidate                 │
+│ calculate actual operation cost         │
+│ compare ra/rra, rb/rrb, rr/rrr          │
+│ execute cheapest useful movement        │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────┐
+│ PHASE 3 — RECONSTRUCTION                │
+│                                         │
+│ extract in required order               │
+│ cheapest rotations                      │
+│ pa                                      │
+│           ↓                             │
+│        SORTED A                         │
+└─────────────────────────────────────────┘
+```
+See more in benchmark_research.md
