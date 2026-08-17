@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 17:47:46 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 17:50:27 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/17 13:52:37 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 	ft_printf("B: ");
 	print_stack(b);
 
-	medium_strategy(&a, &b);
+	medium_sort(&a, &b);
 
 	ft_printf("\nAfter first phase:\n");
 	ft_printf("A: ");

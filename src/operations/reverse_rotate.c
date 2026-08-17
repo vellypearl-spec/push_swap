@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 14:33:04 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 15:08:11 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/17 14:12:19 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,12 @@ void	rrb(t_node **b)
 	last_node->next = *b;
 	node_before->next = NULL;
 	*b = last_node;
+	g_operations++;
 }
 
 void	rrr(t_node **a, t_node **b)
 {
 	rra(a);
 	rrb(b);
+	g_operations++;
 }

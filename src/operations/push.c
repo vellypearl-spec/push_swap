@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 18:58:03 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 15:07:55 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/17 13:21:46 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,40 +42,4 @@ void	pa(t_node **a, t_node **b)
 	g_operations++;
 }
 
-void	sa(t_node **a)
-{
-	t_node	*first_node;
-	t_node	*second_node;
-	t_node	*next_node;
 
-	if (*a == NULL || (*a)->next == NULL)
-		return ;
-	first_node = *a;
-	second_node = (*a)->next;
-	next_node = second_node->next;
-	second_node->next = first_node;
-	first_node->next = next_node;
-	*a = second_node;
-}
-
-void	sb(t_node **b)
-{
-	t_node	*first_node;
-	t_node	*second_node;
-	t_node	*next_node;
-
-	if (*b == NULL || (*b)->next == NULL)
-		return ;
-	first_node = *b;
-	second_node = (*b)->next;
-	next_node = second_node->next;
-	second_node->next = first_node;
-	first_node->next = next_node;
-	*b = second_node;
-}
-
-void	ss(t_node **a, t_node **b)
-{
-	sa(a);
-	sb(b);
-}

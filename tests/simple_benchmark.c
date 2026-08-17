@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 11:31:55 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 18:53:01 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/17 16:33:44 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 	index_stack(a);
 	disorder = calculate_disorder(a);
 	g_operations = 0;
-	medium_strategy(&a, &b);
-	printf("size: %d | disorder: %.3f | operations: %d\n",
+	medium_sort(&a, &b);
+	printf("size: %d | disorder: %.6f | operations: %d\n",
 		stack_size(a), disorder, g_operations);
 	destroy_stack(&a);
 	destroy_stack(&b);
@@ -50,38 +50,38 @@
 }*/
 int	main(int argc, char **argv)
 {
-	t_node	*a_simple;
-	t_node	*b_simple;
+	t_node	*a_medium_new;
+	t_node	*b_medium_new;
 	t_node	*a_medium;
 	t_node	*b_medium;
 	double	disorder;
 
-	a_simple = NULL;
-	b_simple = NULL;
+	a_medium_new = NULL;
+	b_medium_new = NULL;
 	a_medium = NULL;
 	b_medium = NULL;
 
-	stack_builder(&a_simple, argc, argv);
+	stack_builder(&a_medium_new, argc, argv);
 	stack_builder(&a_medium, argc, argv);
 
-	index_stack(a_simple);
+	index_stack(a_medium_new);
 	index_stack(a_medium);
 
-	disorder = calculate_disorder(a_simple);
+	disorder = calculate_disorder(a_medium_new);
 
 	g_operations = 0;
-	simple_strategy(&a_simple, &b_simple);
-	printf("Simple: %d operations\n", g_operations);
+	medium_sort(&a_medium_new, &b_medium_new);
+	printf("Optimized medium sort: %d operations\n", g_operations);
 
 	g_operations = 0;
-	medium_strategy(&a_medium, &b_medium);
-	printf("Medium: %d operations\n", g_operations);
+	medium_sort_old(&a_medium, &b_medium);
+	printf("Old medium sort: %d operations\n", g_operations);
 
 	printf("Size: %d | Disorder: %.6f\n",
 		argc - 1, disorder);
 
-	destroy_stack(&a_simple);
-	destroy_stack(&b_simple);
+	destroy_stack(&a_medium_new);
+	destroy_stack(&b_medium_new);
 	destroy_stack(&a_medium);
 	destroy_stack(&b_medium);
 	return (0);

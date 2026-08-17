@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: glouis <glouis@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 09:13:39 by glouis            #+#    #+#             */
-/*   Updated: 2026/08/17 09:13:39 by glouis           ###   ########.fr       */
+/*   Updated: 2026/08/17 15:07:18 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	fill_chunk(t_node **a, t_node **b, int min, int max)
 	int	len;
 	int	i;
 
-	len = size(*a);
+	len = stack_size(*a);
 	i = 0;
 	while (i < len)
 	{
@@ -41,26 +41,14 @@ static void	fill_chunk(t_node **a, t_node **b, int min, int max)
 
 static void	insert_chunk_descending(t_node **a, t_node **b)
 {
-	t_node	*target;
 	int		best;
-	int		len;
-	int		i;
-
+	int		position;
+	
 	while (*b)
 	{
-		target = *b;
-		best = target->value;
-		len = size(*b);
-		i = 0;
-		while (i < len)
-		{
-			if ((*b)->value > best)
-				best = (*b)->value;
-			rb(b);
-			i++;
-		}
-		while ((*b)->value != best)
-			rb(b);
+		best = find_largest_index(*b);
+		position = find_position(*b,best);
+		bring_to_top_b(b, position);
 		pa(a, b);
 	}
 }
@@ -74,7 +62,9 @@ void	medium_sort(t_node **a, t_node **b)
 	int	min;
 	int	max;
 
-	n = size(*a);
+	if (!*a || count_inversions(*a) == 0)
+		return ;
+	n = stack_size(*a);
 	chunk_size = get_chunk_size(n);
 	num_chunks = (n + chunk_size - 1) / chunk_size;
 	chunk = num_chunks - 1;

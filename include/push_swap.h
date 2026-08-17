@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 18:53:36 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/17 16:29:59 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,9 @@ double	calculate_disorder(t_node *a);
 /* Simple startegy */
 void	simple_strategy(t_node **a, t_node **b);
 
-/* Medium strategy */
-int		chunk_size(int size);
-int		in_chunk(int start, int end, int index);
-void	push_rotate(t_node **a, t_node **b, int start, int end);
-void	first_phase(t_node **a, t_node **b, int start, int end);
-int		find_largest_index(t_node *b);
-void	second_phase(t_node **a, t_node **b);
-void	medium_strategy(t_node **a, t_node **b);
+/* Medium sort */
+void	medium_sort(t_node **a, t_node **b);
+void	bring_to_top_b(t_node **b, int position);
 
 /* Small sorting */
 void	sort_two(t_node **a);
