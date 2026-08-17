@@ -83,3 +83,94 @@
 The medium chunk-based strategy is functionally working and provides a substantial improvement over the simple strategy for random inputs. It can be considered a working baseline and should be frozen before later optimization.
 
 Potential improvements such as adaptive strategy selection, more efficient rotations, or reducing repeated scans can be considered later during the 42-specific optimization pass and/or when designing the custom adaptive strategy.
+
+# 「 ✦ Medium Sort Optimization Comparison  ✦ 」
+
+| Input Type | Size | Disorder | Original Medium Sort | Optimized Medium Sort | Operations Reduced | Reduction |
+|---|---:|---:|---:|---:|---:|---:|
+| Sorted | 100 | 0.000000 | 1,640 | 0 | 1,640 | 100.0% |
+| Random — seed 4442 | 200 | 0.506985 | 5,271 | 3,393 | 1,878 | 35.6% |
+| Random — seed 4742 | 500 | 0.508208 | 20,390 | 12,969 | 7,421 | 36.4% |
+
+## Implemented Optimizations
+
+### ⬩➤ Already-sorted check
+
+The optimized version checks whether stack A is already sorted before starting the chunk algorithm.
+```c
+if (!*a || count_inversions(*a) == 0)
+	return ;
+  This avoids generating unnecessary operations for an already-sorted stack.
+```
+
+### ⬩➤ Maximum search in stack B
+
+The original implementation searched for the largest element by rotating stack B.
+
+```c
+rb
+rb
+rb
+...
+```
+Because every rb is a push_swap operation, searching for an element also increased the generated operation count.
+
+The optimized version searches the linked list directly.
+```c
+find_largest_index()
+        ↓
+find_position()
+```
+Pointer traversal does not generate push_swap operations.
+
+### ⬩➤ Shortest rotation direction
+
+After locating the largest element, the optimized version calculates its position and brings it to the top using the shorter direction.
+```c
+first half of B
+      ↓
+     rb
+second half of B
+      ↓
+     rrb
+```
+The element is then returned to stack A using:
+```c
+pa
+```
+
+### ⬩➤ Original Reconstruction
+```c
+Search whole B using rb
+        ↓
+Find largest value
+        ↓
+Continue rotating with rb until it reaches the top
+        ↓
+pa
+        ↓
+Repeat
+```
+### ⬩➤  Optimized Reconstruction
+```c 
+Traverse B using pointers
+        ↓
+Find largest index
+        ↓
+Find its position
+        ↓
+Choose rb or rrb
+        ↓
+Bring it to the top
+        ↓
+pa
+        ↓
+Repeat
+```
+
+
+## જ⁀➴ Result
+
+The optimization preserves the original chunk-based strategy while reducing unnecessary stack operations during reconstruction.
+
+For the tested random inputs, the optimized implementation reduced the generated operation count by approximately 36%.
