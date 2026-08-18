@@ -60,7 +60,7 @@ void	complex_sort(t_node **a, t_node **b)
 		i = 0;
 		while (i < len)
 		{
-			if (((*a)->index >> bit) & 1)
+			if (!((*a)->index >> bit) & 1)
 				pb(a, b);
 			else
 				ra(a);
