@@ -59,5 +59,5 @@ while (bit < bits)
     while (*b)
         pa(a, b);
     bit++;
-}
+    }
 }
