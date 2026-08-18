@@ -72,6 +72,9 @@ void	medium_sort(t_node **a, t_node **b);
 void	bring_to_top_b(t_node **b, int position);
 int	find_largest_index(t_node *b);
 
+/* Complex sort */
+void	complex_sort(t_node **a, t_node **b);
+
 /* Custom strategy */
 double	rank_distance(t_node *a);
 int	direct_distance(int position_current, int position_next);
