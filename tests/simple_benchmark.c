@@ -6,14 +6,14 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 11:31:55 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/18 13:46:24 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/18 20:53:50 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Strategy metric test
-/*int	main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_node	*a;
 	t_node	*b;
@@ -25,7 +25,7 @@
 	index_stack(a);
 	disorder = calculate_disorder(a);
 	g_operations = 0;
-	complex_sort(&a, &b);
+	custom_sort(&a, &b);
 	printf("size: %d | disorder: %.6f | operations: %d"
 		" | sorted: %s | b empty: %s\n",
 		stack_size(a), disorder, g_operations,
@@ -34,7 +34,7 @@
 	destroy_stack(&a);
 	destroy_stack(&b);
 	return (0);
-}*/
+}
 // Comparsion test 
 /*int	main(int argc, char **argv)
 {
@@ -255,12 +255,13 @@ int	main(int argc, char **argv)
 	return (0);
 }*/
 // Distribution+reconstruction test
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	t_node		*a;
 	t_node		*b;
 	double		disorder;
-	double		rank;
+	double		rank_a;
+	double		rank_b;
 	int			distribution_ops;
 	int			reconstruction_ops;
 
@@ -274,34 +275,192 @@ int	main(int argc, char **argv)
 	stack_builder(&a, argc, argv);
 	index_stack(a);
 
-	/* ft_printf("Before:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);*/
+	//ft_printf("Before:\n");
+	//ft_printf("A: ");
+	//print_stack(a);
+	//ft_printf("B: ");
+	//print_stack(b);
 
 	disorder = calculate_disorder(a);
-	rank = rank_distance(a);
+	rank_a = rank_distance(a);
 	
 	distribution(&a, &b);
 	distribution_ops = g_operations;
+	rank_b = rank_distance(b);
+	
 	reconstruction(&a, &b);
 	reconstruction_ops = g_operations - distribution_ops;
 	
-	/* ft_printf("\nAfter:\n");
-	ft_printf("A: ");
-	print_stack(a);
-	ft_printf("B: ");
-	print_stack(b);*/
-	printf("size: %d | disorder: %.6f | rank: %.6f"
-		" | operations: %d | sorted: %s | b empty: %s\n",
-		stack_size(a), disorder, rank, g_operations,
+	//ft_printf("\nAfter:\n");
+	//ft_printf("A: ");
+	//print_stack(a);
+	//ft_printf("B: ");
+	//print_stack(b);
+	printf("size: %d | disorder: %.6f | rank A: %.6f"
+		" | rank B: %.6f | sorted: %s | b empty: %s"
+		" | operations: %d\n",
+		stack_size(a), disorder, rank_a, rank_b,
 		count_inversions(a) == 0 ? "yes" : "no",
-		b == NULL ? "yes" : "no");
+		b == NULL ? "yes" : "no", g_operations);
 	printf("distribution: %d | reconstruction: %d | total: %d\n",
 	distribution_ops, reconstruction_ops, g_operations);
 	
 	destroy_stack(&a);
 	destroy_stack(&b);
 	return (0);
-}
+}*/
+// Itsy bitsy tiny test
+/*int	main(void)
+{
+	t_node	*b;
+	t_node	*tmp;
+	t_node	*new;
+	
+	b = NULL;
+	
+	new = create_node(10);
+	new->index = 10;
+	add_back(&b, new);
+	new = create_node(8);
+	new->index = 8;
+	add_back(&b, new);
+	new = create_node(6);
+	new->index = 6;
+	add_back(&b, new);
+	new = create_node(4);
+	new->index = 4;
+	add_back(&b, new);
+	
+	tmp = b;
+	while (tmp)
+	{
+		printf("value: %d | index: %d\n", tmp->value, tmp->index);
+		tmp = tmp->next;
+	}
+	printf("target 7  -> %d\n", find_b_insert_position(b, 7));
+	printf("target 9  -> %d\n", find_b_insert_position(b, 9));
+	printf("target 12 -> %d\n", find_b_insert_position(b, 12));
+	printf("target 2  -> %d\n", find_b_insert_position(b, 2));
+	
+	destroy_stack(&b);
+	b = NULL;
+	new = create_node(6);
+	new->index = 6;
+	add_back(&b, new);
+	new = create_node(4);
+	new->index = 4;
+	add_back(&b, new);
+	new = create_node(10);
+	new->index = 10;
+	add_back(&b, new);
+	new = create_node(8);
+	new->index = 8;
+	add_back(&b, new);
+	tmp = b;
+	while (tmp)
+	{
+		printf("index: %d ", tmp->index);
+		tmp = tmp->next;
+	}
+	printf("\n");
+	printf("rotated target 7 -> %d\n",
+		find_b_insert_position(b, 7));
+	destroy_stack(&b);
+	b = NULL;
+	new = create_node(4);
+	new->index = 4;
+	add_back(&b, new);
+	new = create_node(10);
+	new->index = 10;
+	add_back(&b, new);
+	new = create_node(6);
+	new->index = 6;
+	add_back(&b, new);
+	new = create_node(3);
+	new->index = 3;
+	add_back(&b, new);
+	new = create_node(9);
+	new->index = 9;
+	add_back(&b, new);
+	new = create_node(5);
+	new->index = 5;
+	add_back(&b, new);
+	new = create_node(8);
+	new->index = 8;
+	add_back(&b, new);
+	new = create_node(2);
+	new->index = 2;
+	add_back(&b, new);
+	tmp = b;
+	while (tmp)
+	{
+		printf("index: %d ", tmp->index);
+		tmp = tmp->next;
+	}
+	printf("\n");
+	printf("rotated target 7 -> %d\n",
+		find_b_insert_position(b, 7));
+	destroy_stack(&b);
+	return (0);
+}*/
+// Hitchhike test
+/*int	main(void)
+{
+	t_node	*a;
+	t_node	*b;
+	int		i;
+
+	a = NULL;
+	b = NULL;
+	i = 0;
+	while (i < 10)
+	{
+		add_back(&a, create_node(i));
+		add_back(&b, create_node(i));
+		i++;
+	}
+	printf("4 / 2 -> %d (expected 4)\n",
+		hitchike(a, b, 4, 2));
+	printf("7 / 8 -> %d (expected 3)\n",
+		hitchike(a, b, 7, 8));
+	printf("4 / 8 -> %d (expected 6)\n",
+		hitchike(a, b, 4, 8));
+	printf("2 / 4 -> %d (expected 4)\n",
+		hitchike(a, b, 2, 4));
+	printf("5 / 3 -> %d (expected 5)\n",
+		hitchike(a, b, 5, 3));
+	printf("0 / 3 -> %d (expected 3)\n",
+		hitchike(a, b, 0, 3));
+	printf("0 / 0 -> %d (expected 0)\n",
+		hitchike(a, b, 0, 0));
+	printf("8 / 7 -> %d (expected 3)\n",
+		hitchike(a, b, 8, 7));
+	destroy_stack(&a);
+	destroy_stack(&b);
+return (0);
+}*/
+// Executor test
+/*int	main(void)
+{
+	t_node	*a;
+	t_node	*b;
+	int		i;
+
+	a = NULL;
+	b = NULL;
+	i = 0;
+	while (i < 10)
+	{
+		add_back(&a, create_node(i));
+		add_back(&b, create_node(i));
+		i++;
+	}
+	g_operations = 0;
+	execute_hitchike(&a, &b, 7, 8);
+	printf("operations: %d\n", g_operations);
+	print_stack(a);
+	print_stack(b);
+	destroy_stack(&a);
+	destroy_stack(&b);
+	return (0);
+}*/

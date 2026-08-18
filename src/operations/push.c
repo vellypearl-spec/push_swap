@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 18:58:03 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/17 13:21:46 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/18 21:32:57 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	pb(t_node **a, t_node **b)
 	node_to_push->next = *b;
 	*b = node_to_push;
 	*a = next_node;
-	g_operations++;
+	ft_printf("pb\n");
 }
 
 void	pa(t_node **a, t_node **b)
@@ -39,7 +39,7 @@ void	pa(t_node **a, t_node **b)
 	node_to_push->next = *a;
 	*a = node_to_push;
 	*b = next_node;
-	g_operations++;
+	ft_printf("pa\n");
 }
 
 

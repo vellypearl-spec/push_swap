@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   misc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 10:14:58 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 15:12:53 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/18 21:12:05 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	error(void)
 {
-	ft_printf("Oops, seems there is an error! ( : o ‸ o : )\n");
-	exit (0);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 int	sign(char *str)

@@ -6,50 +6,43 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 13:21:07 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/17 14:12:38 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/18 21:27:54 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_node **a)
+static void	swap(t_node **stack)
 {
 	t_node	*first_node;
 	t_node	*second_node;
 	t_node	*next_node;
 
-	if (*a == NULL || (*a)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	first_node = *a;
-	second_node = (*a)->next;
+	first_node = *stack;
+	second_node = (*stack)->next;
 	next_node = second_node->next;
 	second_node->next = first_node;
 	first_node->next = next_node;
-	*a = second_node;
-	g_operations++;
+	*stack = second_node;
+}
+void	sa(t_node **a)
+{
+	swap(a);
+	ft_printf("sa\n");
 }
 
 void	sb(t_node **b)
 {
-	t_node	*first_node;
-	t_node	*second_node;
-	t_node	*next_node;
-
-	if (*b == NULL || (*b)->next == NULL)
-		return ;
-	first_node = *b;
-	second_node = (*b)->next;
-	next_node = second_node->next;
-	second_node->next = first_node;
-	first_node->next = next_node;
-	*b = second_node;
-	g_operations++;
+	swap(b);
+	ft_printf("sb\n");
 }
 
 void	ss(t_node **a, t_node **b)
 {
-	sa(a);
-	sb(b);
-	g_operations++;
+	swap(a);
+	swap(b);
+	ft_printf("ss\n");
 }
 

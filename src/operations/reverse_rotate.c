@@ -6,45 +6,41 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 14:33:04 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/17 14:12:19 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/18 21:27:20 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_node **a)
+static void	r_rotate(t_node **stack)
 {
 	t_node	*last_node;
 	t_node	*node_before;
 
-	if (*a == NULL || (*a)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	node_before = find_before_last(*a);
+	node_before = find_before_last(*stack);
 	last_node = node_before->next;
-	last_node->next = *a;
+	last_node->next = *stack;
 	node_before->next = NULL;
-	*a = last_node;
-	g_operations++;
+	*stack = last_node;
+}
+
+void	rra(t_node **a)
+{
+	r_rotate(a);
+	ft_printf("rra\n");
 }
 
 void	rrb(t_node **b)
 {
-	t_node	*last_node;
-	t_node	*node_before;
-
-	if (*b == NULL || (*b)->next == NULL)
-		return ;
-	node_before = find_before_last(*b);
-	last_node = node_before->next;
-	last_node->next = *b;
-	node_before->next = NULL;
-	*b = last_node;
-	g_operations++;
+	r_rotate(b);
+	ft_printf("rrb\n");
 }
 
 void	rrr(t_node **a, t_node **b)
 {
-	rra(a);
-	rrb(b);
-	g_operations++;
+	r_rotate(a);
+	r_rotate(b);
+	ft_printf("rrr\n");
 }

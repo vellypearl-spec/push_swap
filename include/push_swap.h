@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/18 13:30:23 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/18 21:26:54 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-
-int	g_operations;
 
 /* Stacks */
 
@@ -53,6 +51,7 @@ void	sb(t_node **b);
 void	ss(t_node **a, t_node **b);
 void	ra(t_node **a);
 void	rb(t_node **b);
+void	rr(t_node **a, t_node **b);
 void	rra(t_node **a);
 void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
@@ -60,6 +59,7 @@ void	rrr(t_node **a, t_node **b);
 /* Operation cost */
 int		rotation_cost(int size, int position);
 int		candidate_cost(t_node *a, int index);
+int		hitchike(t_node *a, t_node *b, int a_position, int b_position);
 
 /* Disorder metric */
 int		count_inversions(t_node *a);
@@ -84,8 +84,13 @@ int		rank_pair_distance(t_node *a, int index, int size);
 int		find_best_candidate(t_node *a, int min, int max);
 int		candidate_gain(int baseline, int cost, int rank_gap);
 int		calculate_window(t_node *a, int min);
+int		find_b_insert_position(t_node *b, int target);
 void	distribution(t_node **a, t_node **b);
 void	reconstruction(t_node **a, t_node **b);
+int		rotation_direction(int size, int position);
+void	execute_hitchike(t_node **a, t_node **b,
+		int a_position, int b_position);
+void	custom_sort(t_node **a, t_node **b);
 
 /* Small sorting */
 void	sort_two(t_node **a);
