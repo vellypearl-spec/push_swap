@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/17 19:04:49 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/18 13:30:23 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	rrr(t_node **a, t_node **b);
 
 /* Operation cost */
 int		rotation_cost(int size, int position);
+int		candidate_cost(t_node *a, int index);
 
 /* Disorder metric */
 int		count_inversions(t_node *a);
@@ -70,16 +71,21 @@ void	simple_strategy(t_node **a, t_node **b);
 /* Medium sort */
 void	medium_sort(t_node **a, t_node **b);
 void	bring_to_top_b(t_node **b, int position);
-int	find_largest_index(t_node *b);
+int		find_largest_index(t_node *b);
 
 /* Complex sort */
 void	complex_sort(t_node **a, t_node **b);
 
 /* Custom strategy */
 double	rank_distance(t_node *a);
-int	direct_distance(int position_current, int position_next);
-int	circular_distance(int d_distance, int size);
-int	rank_pair_distance(t_node *a, int index, int size);
+int		direct_distance(int position_current, int position_next);
+int		circular_distance(int d_distance, int size);
+int		rank_pair_distance(t_node *a, int index, int size);
+int		find_best_candidate(t_node *a, int min, int max);
+int		candidate_gain(int baseline, int cost, int rank_gap);
+int		calculate_window(t_node *a, int min);
+void	distribution(t_node **a, t_node **b);
+void	reconstruction(t_node **a, t_node **b);
 
 /* Small sorting */
 void	sort_two(t_node **a);

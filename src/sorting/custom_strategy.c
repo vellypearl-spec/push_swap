@@ -6,9 +6,121 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 17:40:03 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/17 20:24:34 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/18 13:29:32 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	find_best_candidate(t_node *a, int min, int max)
+{
+	int		current_cost;
+	int		best_cost;
+	int		index;
+	int		best_index;
+
+	best_cost = 0;
+	best_index = -1;
+	index = min;
+	while (index < max)
+	{
+		current_cost = candidate_cost(a, index);
+		if (current_cost >= 0)
+		{
+			if (best_index == -1 || current_cost < best_cost)
+			{
+				best_cost = current_cost;
+				best_index = index;
+			}
+		}
+		index++;
+	}
+	return (best_index);
+}
+
+int	candidate_gain(int baseline, int cost, int rank_gap)
+{
+	return (baseline - cost - rank_gap);
+}
+static int	find_best_gain_index(t_node *a, int min, int max)
+{
+	int	baseline;
+	int	best_gain;
+	int	cost;
+	int	index;
+	int	best_index;
+
+	baseline = candidate_cost(a, min);
+	best_gain = 0;
+	best_index = min;
+	index = min + 1;
+	while (index < max)
+	{
+		cost = candidate_cost(a, index);
+		if (cost >= 0)
+		{
+			cost = candidate_gain(baseline, cost, index - min);
+			if (cost > best_gain)
+			{
+				best_gain = cost;
+				best_index = index;
+			}
+		}
+		index++;
+	}
+	return (best_index);
+}
+
+int	calculate_window(t_node *a, int min)
+{
+	int	max;
+	int	best_index;
+
+	if (!a)
+		return (0);
+	max = find_largest_index(a) + 1;
+	best_index = find_best_gain_index(a, min, max);
+	return (best_index - min + 1);
+}
+static int	next_min(t_node *a, int min)
+{
+	while (a && find_position(a, min) < 0)
+		min++;
+	return (min);
+}
+void	distribution(t_node **a, t_node **b)
+{
+	int	min;
+	int	max;
+	int	window;
+	int	target;
+	int	position;
+
+	min = 0;
+	while (*a)
+	{
+		min = next_min(*a, min);
+		window = calculate_window(*a, min);
+		max = min + window;
+		target = find_best_candidate(*a, min, max);
+		if (target < 0)
+			return ;
+		position = find_position(*a, target);
+		bring_to_top(a, position);
+		pb(a, b);
+	}
+}
+
+void	reconstruction(t_node **a, t_node **b)
+{
+	int target;
+	int position;
+
+	while (*b)
+	{
+		target = find_largest_index(*b);
+		position = find_position(*b, target);
+		bring_to_top_b(b, position);
+		pa(a, b);
+	}
+}
