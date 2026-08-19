@@ -13,3 +13,6 @@ checker_Mac
 benchmark
 out.txt
 err.txt
+
+#archive 
+*.a
