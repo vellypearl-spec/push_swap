@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 12:46:37 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/19 14:36:19 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 16:35:07 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 	if (first == argc)
 		return (0);
 	stack_builder(&a, argc - first + 1, argv + first - 1);
+	if (bench)
+		print_benchmark(strategy, a);
 	run_strategy(strategy, &a, &b);
 	(void)bench;
 	destroy_stack(&a);
