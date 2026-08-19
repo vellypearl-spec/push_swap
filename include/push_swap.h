@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/18 21:26:54 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 13:47:26 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "libft/libft.h"
 
 /* Stacks */
-
 typedef struct s_node
 {
 	int				value;
@@ -24,8 +23,16 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
-/* List utility functions */
+/* Flags */
+typedef enum e_strategy
+{
+	SIMPLE,
+	MEDIUM,
+	COMPLEX,
+	ADAPTIVE
+}	t_strategy;
 
+/* List utility functions */
 t_node	*create_node(int n);
 void	destroy_stack(t_node **a);
 void	add_back(t_node **a, t_node *new);
@@ -37,7 +44,6 @@ int		stack_size(t_node *a);
 void	bring_to_top(t_node **a, int position);
 
 /* Parse */
-
 int		validation(char *str);
 long	conversion_range(char *str);
 void	stack_builder(t_node **a, int argc, char **argv);
@@ -97,8 +103,13 @@ void	sort_two(t_node **a);
 void	sort_three(t_node **a);
 void	sort_five(t_node **a, t_node **b);
 
-/* Misc */
+/* Flags */
 
+int		parse_flags(int argc, char **argv,
+			t_strategy *strategy, int *bench);
+void	run_strategy(t_strategy strategy, t_node **a, t_node **b);
+
+/* Misc */
 void	error(void);
 int		sign(char *str);
 void	print_stack(t_node *stack);

@@ -29,7 +29,7 @@ rra  rrb  rrr
 ### ⋆˚✿˖° Compilation
 
 ```bash
-make push_swap
+make 
 ```
 
 The project is compiled with `-Wall -Wextra -Werror`.
