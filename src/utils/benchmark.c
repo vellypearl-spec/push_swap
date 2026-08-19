@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:28:10 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/19 16:29:43 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 16:53:49 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static void	print_strategy(t_strategy strategy)
 		ft_putstr_fd("Strategy: medium | O(n*sqrt(n))\n", 2);
 	else if (strategy == COMPLEX)
 		ft_putstr_fd("Strategy: complex | O(n log n)\n", 2);
-	else
-		ft_putstr_fd("Strategy: adaptive | hybrid\n", 2);
+	else if (strategy == ADAPTIVE)
+	ft_putstr_fd("Strategy: adaptive | hybrid\n", 2);
 }
 
 void	print_benchmark(t_strategy strategy, t_node *a)
