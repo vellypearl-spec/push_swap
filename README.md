@@ -88,7 +88,6 @@ The medium strategy uses approximately `√n` rank buckets. Elements belonging t
 
 This reduces the exact sequential searching required by the simple strategy and gives more stable performance on mixed/random configurations.
 
-> Gift, you can change it as you like!!!! 
 
 ### ⋆˚✿˖° Complex — `O(n log n)`
 
@@ -104,7 +103,6 @@ For each significant bit:
 
 Coordinate compression maps values to ranks `0..n-1`, allowing the radix strategy to work on compact non-negative indexes.
 
-> AND THIS TOO!!!!!
 
 ### ⋆˚✿˖° Adaptive — custom strategy
 
@@ -220,6 +218,8 @@ Handled cases include non-numeric input, duplicate values, and values outside th
 - 42 project subject and evaluation material — requirements and evaluation constraints.
 - 42 Norm / Norminette documentation — style requirements.
 - C manual pages / documentation — linked lists, memory management, and permitted functions.
+- LSD Radix Sort — general algorithm reference used as the basis for the complex strategy.
+- Bucket/chunk-based sorting principles — used as the basis for the medium strategy's O(n√n) approach.
 > Add more in future, too sleepy 
 
 ### ⋆˚✿˖° AI usage
@@ -257,11 +257,12 @@ Main areas of contribution:
 
 Main areas of contribution:
 
-- medium strategy;
-- complex strategy;
-- strategy / benchmark flags.
-
-> Gift, add more explanaitions about your work done here as well!! Testing, debugging and etc!!!
+- medium strategy: chunk-based O(n√n) sort. Fixed a Norm violation (6 local variables, over the 5 limit) by splitting out a run_chunk
+helper function;
+- complex strategy: LSD radix-based O(n log n) sort. Found and fixed a bug where the bit condition was inverted, sorting descending instead of ascending;
+- flags: built parse_flags and run_strategy for --simple/--medium/--complex/--adaptive/--bench, and wired them into main() (previously main() ignored flags entirely);
+- fixed two build issues that blocked compilation: a missing header declaration for complex_sort, and flags.c missing from the Makefile;
+- tested all four strategies by replaying the printed moves against the original input to confirm real sorting, not just compilation.
 
 
 ## Team note
