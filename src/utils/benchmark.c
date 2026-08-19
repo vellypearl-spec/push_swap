@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 16:28:10 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/19 16:53:49 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 17:03:51 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	print_strategy(t_strategy strategy)
 	else if (strategy == COMPLEX)
 		ft_putstr_fd("Strategy: complex | O(n log n)\n", 2);
 	else if (strategy == ADAPTIVE)
-	ft_putstr_fd("Strategy: adaptive | hybrid\n", 2);
+		ft_putstr_fd("Strategy: adaptive | hybrid\n", 2);
 }
 
 void	print_benchmark(t_strategy strategy, t_node *a)
