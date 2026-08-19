@@ -38,25 +38,6 @@ int	parse_flags(int argc, char **argv, t_strategy *strategy, int *bench)
 	return (i);
 }
 
-/*
-** Temporary stand-in for the custom/adaptive strategy while it's still
-** being built: dispatches to one of the three fixed strategies based on
-** the disorder thresholds defined in the subject. Swap this out once
-** custom_strategy() is finished.
-*/
-static void	adaptive_dispatch(t_node **a, t_node **b)
-{
-	double	disorder;
-
-	disorder = calculate_disorder(*a);
-	if (disorder < 0.2)
-		simple_strategy(a, b);
-	else if (disorder < 0.5)
-		medium_sort(a, b);
-	else
-		complex_sort(a, b);
-}
-
 void	run_strategy(t_strategy strategy, t_node **a, t_node **b)
 {
 	if (strategy == SIMPLE)
@@ -66,5 +47,5 @@ void	run_strategy(t_strategy strategy, t_node **a, t_node **b)
 	else if (strategy == COMPLEX)
 		complex_sort(a, b);
 	else
-		adaptive_dispatch(a, b);
+		custom_sort(a, b);
 }
