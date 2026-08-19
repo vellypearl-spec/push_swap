@@ -68,7 +68,15 @@ The program prints only the operations required to sort stack `a`. Already sorte
 
 Running without a strategy flag defaults to adaptive behaviour.
 
-> Update if there are any changes in flags system!!!!!!
+Running without a strategy flag defaults to adaptive behaviour.
+
+The `--bench` flag can be combined with any strategy flag. When present, benchmark
+information is printed to **stderr** after sorting (never mixed into the operation
+output on stdout):
+
+```bash
+./push_swap --bench --complex <numbers>
+```
 
 ### ⋆˚✿˖° Benchmark mode
 
