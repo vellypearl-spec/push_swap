@@ -1,4 +1,4 @@
-*This activity has been created as part of the 42 curriculum by <vkuzmina>, <glouis>.*
+*This activity has been created as part of the 42 curriculum by <login1>[vkuzmina], <login2>[glouis].*
 
 # 「 ✦ push_swap  ✦ 」
 

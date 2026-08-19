@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 18:58:03 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/18 21:32:57 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:24:34 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,3 @@ void	pa(t_node **a, t_node **b)
 	*b = next_node;
 	ft_printf("pa\n");
 }
-
-

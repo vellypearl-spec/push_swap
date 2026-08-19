@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 15:27:32 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 15:11:23 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:27:13 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ void	sort_three(t_node **a)
 		rra(a);
 		sort_two(a);
 	}
-	else
-		sort_two(a);
+	sort_two(a);
 }
 
 void	sort_five(t_node **a, t_node **b)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_calculation.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 20:23:35 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/18 20:23:52 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:40:14 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	candidate_gain(int baseline, int cost, int rank_gap)
 {
 	return (baseline - cost - rank_gap);
 }
+
 static int	find_best_gain_index(t_node *a, int min, int max)
 {
 	int	baseline;

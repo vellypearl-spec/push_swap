@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 09:13:39 by glouis            #+#    #+#             */
-/*   Updated: 2026/08/17 15:07:18 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:25:56 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ static void	insert_chunk_descending(t_node **a, t_node **b)
 {
 	int		best;
 	int		position;
-	
+
 	while (*b)
 	{
 		best = find_largest_index(*b);
-		position = find_position(*b,best);
+		position = find_position(*b, best);
 		bring_to_top_b(b, position);
 		pa(a, b);
 	}

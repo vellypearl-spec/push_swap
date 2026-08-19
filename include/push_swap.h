@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/19 13:47:26 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:32:48 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef enum e_strategy
 /* List utility functions */
 t_node	*create_node(int n);
 void	destroy_stack(t_node **a);
-void	add_back(t_node **a, t_node *new);
+void	add_back(t_node **a, t_node (*new));
 void	index_stack(t_node *a);
 t_node	*find_last(t_node *a);
 t_node	*find_before_last(t_node *a);
@@ -95,7 +95,7 @@ void	distribution(t_node **a, t_node **b);
 void	reconstruction(t_node **a, t_node **b);
 int		rotation_direction(int size, int position);
 void	execute_hitchike(t_node **a, t_node **b,
-		int a_position, int b_position);
+			int a_position, int b_position);
 void	custom_sort(t_node **a, t_node **b);
 
 /* Small sorting */

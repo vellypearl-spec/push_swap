@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_size_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 14:31:34 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 14:37:46 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:40:25 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

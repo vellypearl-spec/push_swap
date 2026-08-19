@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_utility.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/16 20:34:39 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/18 20:24:02 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:40:02 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	push_rotate(t_node **a, t_node **b, int start, int end)
 	if (index <= middle)
 		rb(b);
 }
+
 void	bring_to_top_b(t_node **b, int position)
 {
 	int		size;
@@ -56,6 +57,7 @@ int	rotation_direction(int size, int position)
 		return (1);
 	return (-1);
 }
+
 void	execute_hitchike(t_node **a, t_node **b,
 		int a_position, int b_position)
 {
@@ -84,4 +86,3 @@ void	execute_hitchike(t_node **a, t_node **b,
 		a_cost--;
 	}
 }
-

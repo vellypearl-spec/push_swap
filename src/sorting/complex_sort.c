@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 10:02:30 by glouis            #+#    #+#             */
-/*   Updated: 2026/08/18 11:47:37 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:25:18 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static int	handle_small_stack(t_node **a)
 	}
 	return (0);
 }
+
 static void	radix_pass(t_node **a, t_node **b, int bit)
 {
 	int	i;
@@ -69,7 +70,7 @@ void	complex_sort(t_node **a, t_node **b)
 	if (!*a || count_inversions(*a) == 0)
 		return ;
 	if (handle_small_stack(a))
-		return;
+		return ;
 	bits = get_max_bits(stack_size(*a));
 	bit = 0;
 	while (bit < bits)

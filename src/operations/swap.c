@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 13:21:07 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/18 21:27:54 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:25:00 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	swap(t_node **stack)
 	first_node->next = next_node;
 	*stack = second_node;
 }
+
 void	sa(t_node **a)
 {
 	swap(a);
@@ -45,4 +46,3 @@ void	ss(t_node **a, t_node **b)
 	swap(b);
 	ft_printf("ss\n");
 }
-

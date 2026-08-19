@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   custom_strategy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 17:40:03 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/18 20:49:59 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:25:41 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int	next_min(t_node *a, int min)
 		min++;
 	return (min);
 }
+
 static void	move_target(t_node **a, t_node **b, int target)
 {
 	int	a_position;
@@ -40,13 +41,14 @@ static void	move_target(t_node **a, t_node **b, int target)
 	}
 	pb(a, b);
 }
+
 void	distribution(t_node **a, t_node **b)
 {
 	int	min;
 	int	max;
 	int	window;
 	int	target;
-	
+
 	min = 0;
 	while (*a)
 	{
@@ -76,6 +78,7 @@ void	reconstruction(t_node **a, t_node **b)
 		pa(a, b);
 	}
 }
+
 void	custom_sort(t_node **a, t_node **b)
 {
 	if (!a || !*a || !b)

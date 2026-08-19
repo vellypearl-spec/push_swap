@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 14:02:19 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/18 21:27:37 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:24:47 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	rotate(t_node **stack)
 	*stack = first_node->next;
 	first_node->next = NULL;
 }
+
 void	ra(t_node **a)
 {
 	rotate(a);
