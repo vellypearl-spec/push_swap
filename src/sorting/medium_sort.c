@@ -41,8 +41,8 @@ static void	fill_chunk(t_node **a, t_node **b, int min, int max)
 
 static void	insert_chunk_descending(t_node **a, t_node **b)
 {
-	int		best;
-	int		position;
+	int	best;
+	int	position;
 
 	while (*b)
 	{
@@ -53,14 +53,25 @@ static void	insert_chunk_descending(t_node **a, t_node **b)
 	}
 }
 
+static void	run_chunk(t_node **a, t_node **b, int chunk, int chunk_size, int n)
+{
+	int	min;
+	int	max;
+
+	min = chunk * chunk_size;
+	max = min + chunk_size;
+	if (max > n)
+		max = n;
+	fill_chunk(a, b, min, max);
+	insert_chunk_descending(a, b);
+}
+
 void	medium_sort(t_node **a, t_node **b)
 {
 	int	n;
 	int	chunk_size;
 	int	num_chunks;
 	int	chunk;
-	int	min;
-	int	max;
 
 	if (!*a || count_inversions(*a) == 0)
 		return ;
@@ -70,12 +81,7 @@ void	medium_sort(t_node **a, t_node **b)
 	chunk = num_chunks - 1;
 	while (chunk >= 0)
 	{
-		min = chunk * chunk_size;
-		max = min + chunk_size;
-		if (max > n)
-			max = n;
-		fill_chunk(a, b, min, max);
-		insert_chunk_descending(a, b);
+		run_chunk(a, b, chunk, chunk_size, n);
 		chunk--;
 	}
 }
