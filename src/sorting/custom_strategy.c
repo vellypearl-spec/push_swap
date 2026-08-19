@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   custom_strategy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 17:40:03 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/19 14:25:41 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/19 15:18:06 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,27 @@ void	reconstruction(t_node **a, t_node **b)
 
 void	custom_sort(t_node **a, t_node **b)
 {
+	int	size;
+
 	if (!a || !*a || !b)
 		return ;
+	size = stack_size(*a);
+	if (size >= 350)
+	{
+		complex_sort(a, b);
+		return ;
+	}
 	if (count_inversions(*a) == 0)
 		return ;
-	distribution(a, b);
-	reconstruction(a, b);
+	if (size == 2)
+		sort_two(a);
+	else if (size == 3)
+		sort_three(a);
+	else if (size <= 5)
+		sort_five(a, b);
+	else
+	{
+		distribution(a, b);
+		reconstruction(a, b);
+	}
 }

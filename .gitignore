@@ -9,3 +9,7 @@ push_swap
 
 # Temporary test executables
 a.out
+checker_Mac
+benchmark
+out.txt
+err.txt
