@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 21:12:52 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/20 10:27:26 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/20 10:42:02 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ void	run_strategy(t_strategy strategy, t_node **a, t_node **b);
 
 /* Misc */
 void	error(t_node **a);
+void	error_flags(void);
 int		sign(char *str);
 void	print_stack(t_node *stack);
 void	print_benchmark(t_strategy strategy, t_node *a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: glouis <glouis@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:33:41 by glouis            #+#    #+#             */
-/*   Updated: 2026/08/19 11:33:41 by glouis           ###   ########.fr       */
+/*   Updated: 2026/08/20 10:42:15 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	parse_flags(int argc, char **argv, t_strategy *strategy, int *bench)
 		else if (!ft_strncmp(argv[i], "--bench", 8))
 			*bench = 1;
 		else
-			error();
+			error_flags();
 		i++;
 	}
 	return (i);

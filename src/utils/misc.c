@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 10:14:58 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/20 10:21:12 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/20 10:41:46 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void	error(t_node **a)
 {
 	if (a)
 		destroy_stack(a);
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+void	error_flags(void)
+{
 	write(2, "Error\n", 6);
 	exit(1);
 }
