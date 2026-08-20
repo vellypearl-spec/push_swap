@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   misc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuzmina <vkuzmina@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 10:14:58 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/18 21:12:05 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/20 10:21:12 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(void)
+void	error(t_node **a)
 {
+	if (a)
+		destroy_stack(a);
 	write(2, "Error\n", 6);
 	exit(1);
 }

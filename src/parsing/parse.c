@@ -6,7 +6,7 @@
 /*   By: vkuzmina <vkuzmina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 15:53:23 by vkuzmina          #+#    #+#             */
-/*   Updated: 2026/08/16 15:10:12 by vkuzmina         ###   ########.fr       */
+/*   Updated: 2026/08/20 10:26:08 by vkuzmina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	validation(char *str)
 	return (1);
 }
 
-long	conversion_range(char *str)
+long	conversion_range(char *str, t_node **a)
 {
 	long	number;
 	int		i;
@@ -48,7 +48,7 @@ long	conversion_range(char *str)
 	while (str[i])
 	{
 		if (number > ((limit - (str[i] - '0')) / 10))
-			error();
+			error(a);
 		else
 		{
 			number = number * 10 + (str[i] - '0');
@@ -69,20 +69,19 @@ void	stack_builder(t_node **a, int argc, char **argv)
 	while (i < argc)
 	{
 		if (!validation(argv[i]))
-			error();
-		number = conversion_range(argv[i]);
+			error(a);
+		number = conversion_range(argv[i], a);
 		number = (int)number;
 		new = create_node(number);
 		if (!new)
 		{
-			destroy_stack(a);
-			error();
+			error(a);
 		}
 		add_back(a, new);
 		i++;
 	}
 	if (duplicate_checker(*a))
-		error();
+		error(a);
 	index_stack(*a);
 }
 
