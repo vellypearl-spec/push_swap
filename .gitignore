@@ -9,8 +9,6 @@ push_swap
 
 # Temporary test executables
 a.out
-checker_Mac
-checker_linux
 benchmark
 out.txt
 err.txt

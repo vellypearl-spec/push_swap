@@ -228,7 +228,6 @@ Handled cases include non-numeric input, duplicate values, and values outside th
 - C manual pages / documentation — linked lists, memory management, and permitted functions.
 - LSD Radix Sort — general algorithm reference used as the basis for the complex strategy.
 - Bucket/chunk-based sorting principles — used as the basis for the medium strategy's O(n√n) approach.
-> Add more in future, too sleepy 
 
 ### ⋆˚✿˖° AI usage
 
