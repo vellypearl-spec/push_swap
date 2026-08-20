@@ -57,6 +57,12 @@ Example:
 
 The program prints only the operations required to sort stack `a`. Already sorted input produces no instructions.
 
+Test:
+```
+CHECKER='your checker address/checker_linux' \
+bash final_push_swap_tests.sh
+```
+
 ### ⋆˚✿˖° Strategy flags
 
 ```bash
